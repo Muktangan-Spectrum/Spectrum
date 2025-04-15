@@ -293,16 +293,23 @@
 
 
         /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 40px;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: var(--nav-bg);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
+        /* Add this to your header CSS */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* High value to ensure header stays on top */
+  background: white; /* Add background color if not already present */
+}
+        /* Add margin-top to main content container */
+main {
+  margin-top: 80px; /* Adjust based on your header height */
+}
+
+        .about-section {
+  position: relative;
+  z-index: 1; /* Lower than header's z-index */
+}
 
         header.scrolled {
             padding: 10px 0;
