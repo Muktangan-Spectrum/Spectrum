@@ -6,13 +6,8 @@
     <title>About Team Spectrum - STFE 2024</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    @media (max-width: 768px) {
-    /* Global Mobile Fixes */
-    .container {
-        width: 95% !important;
-        padding: 0 10px !important;
-    }
-
+     @media (max-width: 768px) {
+    /* Main Content Adjustments */
     section {
         padding: 40px 0 !important;
     }
@@ -24,7 +19,6 @@
     }
     .about-hero h1 {
         font-size: 2rem !important;
-        line-height: 1.2 !important;
         margin-bottom: 15px !important;
     }
     .about-hero p {
@@ -35,21 +29,19 @@
     .project-highlight {
         padding: 25px 15px !important;
         margin: 30px 0 !important;
-        text-align: center;
     }
     .project-highlight img {
         position: relative !important;
         bottom: auto !important;
         right: auto !important;
         margin: 20px auto 0 !important;
-        width: 80px !important;
     }
 
     /* Team Section */
     .team-grid[style*="grid-template-columns: repeat(3, 1fr)"] {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
-        margin: 0 !important;
+        padding: 0 10px !important;
     }
     .team-card {
         padding: 20px !important;
@@ -59,17 +51,11 @@
         width: 80px !important;
         height: 80px !important;
     }
-    .rotating-circle span {
-        font-size: 1.8rem !important;
-    }
 
     /* Partner Logos */
     .partner-logos div {
         flex-direction: column !important;
         gap: 30px !important;
-    }
-    .partner-logo {
-        max-width: 200px !important;
     }
 
     /* Timeline Section */
@@ -86,10 +72,12 @@
         position: relative !important;
         left: 0 !important;
         margin-bottom: 15px !important;
-        width: max-content !important;
+    }
+    .timeline-line {
+        display: none !important;
     }
 
-    /* Video Section */
+    /* Journey Video Section */
     .journey-content {
         flex-direction: column !important;
     }
@@ -99,7 +87,7 @@
         margin: 15px 0 !important;
     }
 
-    /* Headers & Text */
+    /* General Spacing Fixes */
     h2 {
         font-size: 1.8rem !important;
         margin-bottom: 25px !important;
@@ -113,11 +101,13 @@
 }
 
 @media (max-width: 480px) {
-    .about-hero h1 {
-        font-size: 1.8rem !important;
+    .container {
+        width: 95% !important;
+        padding: 0 10px !important;
     }
-    .partner-logo {
-        max-width: 150px !important;
+    .project-highlight,
+    .partner-logos {
+        padding: 25px 15px !important;
     }
 }
         /* Base Styles */
@@ -291,24 +281,29 @@
             color: var(--text-color);
         }
 
-
-        /* Header & Navigation */
-        /* Add this to your header CSS */
-header {
-  position: fixed;
-  top: 40px;
-  width: 100%;
-  z-index: 1000; /* High value to ensure header stays on top */
-  background: white; /* Add background color if not already present */
-}
-        /* Add margin-top to main content container */
-main {
-  margin-top: 80px; /* Adjust based on your header height */
-}
-
-        .about-section {
-  position: relative;
-  z-index: 1; /* Lower than header's z-index */
+        @media (max-width: 768px) {
+    /* Add this at the beginning of your media query */
+    .about-hero {
+        margin-top: 120px !important; /* Increased from 80px */
+        z-index: 1 !important;
+        position: relative;
+    }
+    
+    header {
+        top: 40px; /* Keep existing value */
+        z-index: 1000;
+        background: var(--nav-bg);
+        height: 60px; /* Added fixed height */
+    }
+    
+    .nav-links {
+        top: 100px; /* Adjusted from 130px */
+    }
+    
+    /* Add this new rule */
+    section:first-of-type {
+        margin-top: 100px !important;
+    }
 }
 
         header.scrolled {
@@ -702,6 +697,7 @@ main {
         </div>
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(106, 17, 203, 0.1); z-index: 1; border-radius: 20px;"></div>
     </section>
+
     <!-- Project Overview -->
     <section class="about-content">
         <div class="container">
