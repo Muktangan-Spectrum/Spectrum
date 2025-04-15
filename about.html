@@ -267,7 +267,24 @@
             color: var(--text-color);
         }
 
+@media (max-width: 768px) {
+    /* ... existing mobile styles ... */
 
+    /* Project Highlight Image Fix */
+    .project-highlight img {
+        position: relative !important;
+        bottom: auto !important;
+        right: auto !important;
+        width: 80px !important;  /* Reduced size for mobile */
+        margin: 30px auto 0 !important;  /* Added top margin */
+        display: block !important;
+    }
+
+    /* Adjust project highlight padding */
+    .project-highlight {
+        padding: 40px 20px !important;  /* Reduced vertical padding */
+    }
+}
         /* Header & Navigation */
         header {
             position: fixed;
