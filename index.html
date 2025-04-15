@@ -6,6 +6,138 @@
     <title>Spectrum - Illuminating Possibilities</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Base Styles */
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --red-pastel: #ff9a9e;
+            --orange-pastel: #fbc2eb;
+            --yellow-pastel: #ffecd2;
+            --green-pastel: #a1c4fd;
+            --blue-pastel: #c2e9fb;
+            --purple-pastel: #d4b6f5;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 8px 30px rgba(106, 17, 203, 0.12);
+            --bg-color: white;
+            --text-color: black;
+            --nav-bg: #fff;
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --nav-bg: #121212;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        button, .btn {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(106, 17, 203, 0.2);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(106, 17, 203, 0.05);
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 0.5em;
+            line-height: 1.2;
+            color: var(--text-color);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin-top: 15px;
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
         /* Announcement Bar */
         .announcement-bar {
             width: 100%;
@@ -106,6 +238,53 @@
             border: none;
             font-size: 1.5rem;
             color: var(--primary);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            margin-left: 20px;
+        }
+
+        .theme-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .theme-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .theme-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .theme-slider {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        input:checked + .theme-slider:before {
+            transform: translateX(30px);
         }
 
         /* Hero Section */
@@ -426,6 +605,13 @@
                     <li><a href="news.html">News</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
+                <label class="theme-toggle">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="theme-slider"></span>
+                </label>
+                <button class="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
             </nav>
         </div>
     </header>
@@ -526,7 +712,7 @@
                     <h4>Contact</h4>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> Muktangan Exploratory</li>
-                        <li><i class="fas fa-phone"></i> (+91) 123-4567</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
                         <li><i class="fas fa-envelope"></i> Spectrum@gmail.com</li>
                     </ul>
                 </div>
@@ -572,6 +758,24 @@
                 header.classList.remove('scrolled');
             }
         });
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+            // Save preference to localStorage
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.checked = true;
+        }
     </script>
 </body>
 </html>
