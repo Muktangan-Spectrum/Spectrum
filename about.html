@@ -6,108 +6,94 @@
     <title>About Team Spectrum - STFE 2024</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-     @media (max-width: 768px) {
-    /* Main Content Adjustments */
-    section {
-        padding: 40px 0 !important;
-    }
-
-    /* Hero Section */
+        @media (max-width: 768px) {
+    /* About Hero Section */
     .about-hero {
         margin-top: 80px !important;
-        padding: 30px 0 !important;
+        padding: 40px 0 !important;
     }
+    
     .about-hero h1 {
         font-size: 2rem !important;
+        line-height: 1.3 !important;
         margin-bottom: 15px !important;
-    }
-    .about-hero p {
-        font-size: 1.1rem !important;
     }
 
     /* Project Highlight */
     .project-highlight {
-        padding: 25px 15px !important;
+        padding: 30px 20px !important;
         margin: 30px 0 !important;
     }
+    
     .project-highlight img {
         position: relative !important;
         bottom: auto !important;
         right: auto !important;
         margin: 20px auto 0 !important;
+        display: block !important;
     }
 
     /* Team Section */
-    .team-grid[style*="grid-template-columns: repeat(3, 1fr)"] {
+    .team-grid {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
-        padding: 0 10px !important;
-    }
-    .team-card {
-        padding: 20px !important;
-        margin: 10px 0 !important;
-    }
-    .rotating-circle {
-        width: 80px !important;
-        height: 80px !important;
+        margin: 0 !important;
     }
 
-    /* Partner Logos */
-    .partner-logos div {
-        flex-direction: column !important;
-        gap: 30px !important;
+    .team-card {
+        margin: 0 !important;
+        padding: 20px !important;
+    }
+
+    /* Mentorship Section */
+    .team-grid[style*="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* STFE Program Section */
+    .program-highlights {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        margin-top: 30px !important;
     }
 
     /* Timeline Section */
     .timeline-item {
-        flex-direction: column !important;
         margin-bottom: 40px !important;
+        flex-direction: column !important;
     }
+
     .timeline-content {
         margin-left: 0 !important;
         width: 100% !important;
         padding: 20px !important;
     }
+
     .timeline-date {
         position: relative !important;
         left: 0 !important;
         margin-bottom: 15px !important;
+        transform: none !important;
+        animation: none !important;
     }
+
     .timeline-line {
         display: none !important;
     }
 
-    /* Journey Video Section */
-    .journey-content {
-        flex-direction: column !important;
-    }
-    .video-container,
-    .journey-info {
-        width: 100% !important;
-        margin: 15px 0 !important;
-    }
-
     /* General Spacing Fixes */
+    section.about-content {
+        padding: 40px 0 !important;
+    }
+    
     h2 {
-        font-size: 1.8rem !important;
         margin-bottom: 25px !important;
+        font-size: 1.8rem !important;
     }
-    h3 {
-        font-size: 1.3rem !important;
-    }
+    
     p {
-        font-size: 1rem !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        width: 95% !important;
-        padding: 0 10px !important;
-    }
-    .project-highlight,
-    .partner-logos {
-        padding: 25px 15px !important;
+        margin-bottom: 1rem !important;
     }
 }
         /* Base Styles */
@@ -281,30 +267,18 @@
             color: var(--text-color);
         }
 
-        @media (max-width: 768px) {
-    /* Add this at the beginning of your media query */
-    .about-hero {
-        margin-top: 120px !important; /* Increased from 80px */
-        z-index: 1 !important;
-        position: relative;
-    }
-    
-    header {
-        top: 40px; /* Keep existing value */
-        z-index: 1000;
-        background: var(--nav-bg);
-        height: 60px; /* Added fixed height */
-    }
-    
-    .nav-links {
-        top: 200px; /* Adjusted from 130px */
-    }
-    
-    /* Add this new rule */
-    section:first-of-type {
-        margin-top: 200px !important;
-    }
-}
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
 
         header.scrolled {
             padding: 10px 0;
@@ -690,10 +664,10 @@
     </div>
 </header>
     <!-- Hero Section -->
-    <section class="about-hero" style="margin-top: 150px; padding: 80px 0; background: #6a11cb; color: black; text-align: center; position: relative; border-radius: 20px; box-shadow: 0 8px 30px rgba(106, 17, 203, 0.3); width: 90%; margin-left: auto; margin-right: auto; overflow: hidden; z-index: 1;">
-        <div class="container" style="position: relative; z-index: 2; padding: 0 15px;">
-            <h1 style="font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 700; color: black; word-wrap: break-word;">Young Innovators of B.V.B.S.N.V.M</h1>
-            <p style="font-size: 1.5rem; max-width: 800px; margin: 0 auto; font-weight: 500; color: black; word-wrap: break-word;">Students turned entrepreneurs through the STFE 2024 program</p>
+    <section class="about-hero" style="margin-top: 120px; padding: 80px 0; background: #6a11cb; color: black; text-align: center; position: relative; border-radius: 20px; box-shadow: 0 8px 30px rgba(106, 17, 203, 0.3);">
+        <div class="container" style="position: relative; z-index: 2;">
+            <h1 style="font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 700; color: black;">Young Innovators of BVBVSNVM</h1>
+            <p style="font-size: 1.5rem; max-width: 800px; margin: 0 auto; font-weight: 500; color: black;">Students turned entrepreneurs through the STFE 2024 program</p>
         </div>
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(106, 17, 203, 0.1); z-index: 1; border-radius: 20px;"></div>
     </section>
@@ -1179,17 +1153,11 @@
             <div class="section-header animate-fade-in">
                 <h2>Journey Video</h2>
             </div>
-            <div class="journey-content" style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
-                <div class="video-container animate-slide-up" style="flex: 3; min-width: 300px; background-color: #333; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
-                    <video controls autoplay="false" preload="metadata" style="width: 100%; height: auto; display: block;">
-                        <source src="Journey.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="journey-info animate-fade-in" style="flex: 1; min-width: 250px; background-color: #6a11cb; padding: 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                    <h3 style="color: #fff; font-weight: bold; margin-bottom: 15px;">Our Journey</h3>
-                    <p style="color: #fff; font-weight: bold; line-height: 1.6;">Follow Team Spectrum's innovative path from concept to creation. Watch how we developed Sileo to transform urban soundscapes and create more livable cities.</p>
-                </div>
+            <div class="video-container animate-slide-up" style="width: 100%; max-width: 800px; margin: 0 auto; background-color: #333; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+                <video controls style="width: 100%; height: auto; display: block;">
+                    <source src="Journey.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </section>
@@ -1233,7 +1201,7 @@
                     <h4>Contact</h4>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> Muktangan Exploratory</li>
-                        <li><i class="fas fa-phone"></i> (+91) 123-4567</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
                         <li><i class="fas fa-envelope"></i> Spectrum@gmail.com</li>
                     </ul>
                 </div>
