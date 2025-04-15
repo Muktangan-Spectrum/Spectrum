@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Team Spectrum - STFE 2024</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @media (max-width: 768px) {
+    /* About Hero Section */
+    .about-hero {
+        margin-top: 80px !important;
+        padding: 40px 0 !important;
+    }
+    
+    .about-hero h1 {
+        font-size: 2rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Project Highlight */
+    .project-highlight {
+        padding: 30px 20px !important;
+        margin: 30px 0 !important;
+    }
+    
+    .project-highlight img {
+        position: relative !important;
+        bottom: auto !important;
+        right: auto !important;
+        margin: 20px auto 0 !important;
+        display: block !important;
+    }
+
+    /* Team Section */
+    .team-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        margin: 0 !important;
+    }
+
+    .team-card {
+        margin: 0 !important;
+        padding: 20px !important;
+    }
+
+    /* Mentorship Section */
+    .team-grid[style*="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* STFE Program Section */
+    .program-highlights {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        margin-top: 30px !important;
+    }
+
+    /* Timeline Section */
+    .timeline-item {
+        margin-bottom: 40px !important;
+        flex-direction: column !important;
+    }
+
+    .timeline-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 20px !important;
+    }
+
+    .timeline-date {
+        position: relative !important;
+        left: 0 !important;
+        margin-bottom: 15px !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    .timeline-line {
+        display: none !important;
+    }
+
+    /* General Spacing Fixes */
+    section.about-content {
+        padding: 40px 0 !important;
+    }
+    
+    h2 {
+        margin-bottom: 25px !important;
+        font-size: 1.8rem !important;
+    }
+    
+    p {
+        margin-bottom: 1rem !important;
+    }
+}
+        /* Base Styles */
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 8px 30px rgba(106, 17, 203, 0.12);
+            --bg-color: white;
+            --text-color: black;
+            --nav-bg: #fff;
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --nav-bg: #121212;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+         /* Announcement Bar */
+        .announcement-bar {
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            z-index: 2000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            padding: 5px 0;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .announcement-bar p {
+            color: white;
+        }
+
+        /* ... (Keep all base styles from previous about.html) ... */
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --red-pastel: #ff9a9e;
+            --orange-pastel: #fbc2eb;
+            --yellow-pastel: #ffecd2;
+            --green-pastel: #a1c4fd;
+            --blue-pastel: #c2e9fb;
+            --purple-pastel: #d4b6f5;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 8px 30px rgba(106, 17, 203, 0.12);
+            --bg-color: white;
+            --text-color: black;
+            --nav-bg: #fff;
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --nav-bg: #121212;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        button, .btn {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(106, 17, 203, 0.2);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(106, 17, 203, 0.05);
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 0.5em;
+            line-height: 1.2;
+            color: var(--text-color);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin-top: 15px;
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            display: none; /* Hide the text since we have the logo image */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            margin-left: 20px;
+        }
+
+        .theme-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .theme-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .theme-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .theme-slider {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        input:checked + .theme-slider:before {
+            transform: translateX(30px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 90px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 45%;
+            max-width: 600px;
+            animation: floatIn 1s ease-in-out;
+        }
+        /* Custom Additions */
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .partner-logo {
+            height: 60px;
+            width: auto;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .project-highlight {
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            margin: 40px 0;
+        }
+        /* Footer */
+        footer {
+            background: var(--nav-bg);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .hero-image {
+                width: 40%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 130px;
+                left: 0;
+                width: 100%;
+                background: var(--nav-bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: circle(0% at 100% 0);
+                transition: clip-path 0.4s ease;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                clip-path: circle(150% at 100% 0);
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 100px;
+                height: auto;
+                min-height: 100vh;
+            }
+            
+            .hero-content {
+                margin-bottom: 50px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-image {
+                position: relative;
+                width: 80%;
+                margin-top: 30px;
+            }
+            
+            .feature-card {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+        }
+    </style>
+    </head>
+    <body>
+    <div class="announcement-bar">
+        <p>Introducing <strong>SILEO</strong></p>
+    </div>
+<!-- Header -->
+<header>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="logo-removebg-preview.png" alt="Spectrum Logo" class="logo-img">
+                <span>Spectrum</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <label class="theme-toggle">
+                <input type="checkbox" id="themeToggle">
+                <span class="theme-slider"></span>
+            </label>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </div>
+</header>
+    <!-- Hero Section -->
+    <section class="about-hero" style="margin-top: 120px; padding: 80px 0; background: #6a11cb; color: black; text-align: center; position: relative; border-radius: 20px; box-shadow: 0 8px 30px rgba(106, 17, 203, 0.3);">
+        <div class="container" style="position: relative; z-index: 2;">
+            <h1 style="font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 700; color: black;">Young Innovators of BVBVSNVM</h1>
+            <p style="font-size: 1.5rem; max-width: 800px; margin: 0 auto; font-weight: 500; color: black;">Students turned entrepreneurs through the STFE 2024 program</p>
+        </div>
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(106, 17, 203, 0.1); z-index: 1; border-radius: 20px;"></div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="about-content">
+        <div class="container">
+            <div class="project-highlight" style="background: #333333; padding: 60px; border-radius: 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.4); color: white; margin: 60px 0; position: relative;">
+                <h2 style="color: white; margin-bottom: 30px; font-size: 2.5rem;">Sileo - The Quiet Revolution</h2>
+                <p style="color: #e0e0e0; font-size: 1.3rem; line-height: 1.8; margin-bottom: 30px;">Our flagship innovation addressing India's noise pollution crisis through intelligent horn modulation technology. Designed to:</p>
+                <ul style="color: #e0e0e0; list-style-position: inside; padding-left: 30px; font-size: 1.2rem;">
+                    <li style="margin-bottom: 15px;">Reduce unnecessary honking </li>
+                    <li style="margin-bottom: 15px;">Emergency Overide Button/Feature</li>
+                    <li style="margin-bottom: 15px;">Be retrofitted to existing vehicles</li>
+                </ul>
+                <img src="sileo-logo.png" alt="Sileo Logo" style="position: absolute; bottom: 30px; right: 30px; width: 120px; height: auto;">
+            </div>
+
+            <!-- Partner Logos -->
+            <div class="partner-logos" style="background: #fafafa; padding: 60px; border-radius: 20px; box-shadow: var(--box-shadow); margin: 60px 0;">
+                <h2 style="text-align: center; margin-bottom: 40px; color: var(--text-color); font-size: 2.5rem;">Our Partners</h2>
+                <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 60px;">
+                    <img src="muktangan.png" alt="Muktangan Exploratory" class="partner-logo" style="max-width: 300px; height: auto;">
+                    <img src="dasault.png" alt="Dassault Systèmes" class="partner-logo" style="max-width: 300px; height: auto;">
+                    <img src="Bhavan.png" alt="BVBVSNVM" class="partner-logo" style="max-width: 300px; height: auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="about-content">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 3rem; margin-bottom: 40px; color: var(--text-color);" class="animate__animated animate__fadeIn">The Spectrum Seven</h2>
+            <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 60px; color: var(--text-color-light);" class="animate__animated animate__fadeIn animate__delay-1s">Meet our team of Grade 8th students from Bharatiya Vidya Bhavan Sulochana Natu Vidya Mandir.</p>
+            
+            <div class="team-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto;">
+                <!-- Team Member 1 -->
+                <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center; transition: transform 0.3s ease;">
+                    <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                            <i class="fas fa-crown" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            <i class="fas fa-chess-king" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                        </div>
+                        <span style="font-size: 2.5rem; color: white;">RH</span>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Ronav Haldankar</h3>
+                    <p style="color: var(--primary); font-weight: 600; margin-bottom: 15px;"><i class="fas fa-chess-king" style="margin-right: 8px;"></i>General Manager</p>
+                    <p style="font-style: italic; line-height: 1.6;">"Leadership is not about being in charge. It's about taking care of those in your charge." - Simon Sinek</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center; transition: transform 0.3s ease;">
+                    <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                            <i class="fas fa-bolt" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            <i class="fas fa-plug" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                        </div>
+                        <span style="font-size: 2.5rem; color: white;">IT</span>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Indrayani Thorat</h3>
+                    <p style="color: var(--primary); font-weight: 600; margin-bottom: 15px;"><i class="fas fa-bolt" style="margin-right: 8px;"></i>Electrical Manager</p>
+                    <p style="font-style: italic; line-height: 1.6;">"Electricity is really just organized lightning." - George Carlin</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center; transition: transform 0.3s ease;">
+                    <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                            <i class="fas fa-pencil-ruler" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            <i class="fas fa-drafting-compass" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                        </div>
+                        <span style="font-size: 2.5rem; color: white;">VS</span>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Viraj Salvi</h3>
+                    <p style="color: var(--primary); font-weight: 600; margin-bottom: 15px;"><i class="fas fa-pencil-ruler" style="margin-right: 8px;"></i>Designing Manager</p>
+                    <p style="font-style: italic; line-height: 1.6;">"Design is not just what it looks like and feels like. Design is how it works." - Steve Jobs</p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center; transition: transform 0.3s ease;">
+                    <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                            <i class="fas fa-bullhorn" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            <i class="fas fa-chart-line" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                        </div>
+                        <span style="font-size: 2.5rem; color: white;">AH</span>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Anish Hode</h3>
+                    <p style="color: var(--primary); font-weight: 600; margin-bottom: 15px;"><i class="fas fa-bullhorn" style="margin-right: 8px;"></i>Marketing Manager</p>
+                    <p style="font-style: italic; line-height: 1.6;">"Marketing is no longer about the stuff that you make, but about the stories you tell." - Seth Godin</p>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center; transition: transform 0.3s ease;">
+                    <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                            <i class="fas fa-industry" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            <i class="fas fa-cogs" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                        </div>
+                        <span style="font-size: 2.5rem; color: white;">RS</span>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Rutwik Salian</h3>
+                    <p style="color: var(--primary); font-weight: 600; margin-bottom: 15px;"><i class="fas fa-industry" style="margin-right: 8px;"></i>Manufacturing Manager</p>
+                    <p style="font-style: italic; line-height: 1.6;">"Quality means doing it right when no one is looking." - Henry Ford</p>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center; transition: transform 0.3s ease;">
+                    <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                            <i class="fas fa-paint-brush" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            <i class="fas fa-palette" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                        </div>
+                        <span style="font-size: 2.5rem; color: white;">R</span>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Rudra</h3>
+                    <p style="color: var(--primary); font-weight: 600; margin-bottom: 15px;"><i class="fas fa-paint-brush" style="margin-right: 8px;"></i>Designer</p>
+                    <p style="font-style: italic; line-height: 1.6;">"Good design is obvious. Great design is transparent." - Joe Sparano</p>
+                </div>
+
+                <!-- Team Member 7 -->
+                <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center; transition: transform 0.3s ease;">
+                    <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                            <i class="fas fa-calculator" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            <i class="fas fa-chart-pie" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                        </div>
+                        <span style="font-size: 2.5rem; color: white;">AH</span>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Akshita Hole</h3>
+                    <p style="color: var(--primary); font-weight: 600; margin-bottom: 15px;"><i class="fas fa-calculator" style="margin-right: 8px;"></i>Finance Manager</p>
+                    <p style="font-style: italic; line-height: 1.6;">"Numbers have an important story to tell. They rely on you to give them a clear and convincing voice." - Stephen Few</p>
+                </div>
+
+                <!-- Team Values Card -->
+                <div class="team-card animate-fade-in" style="background: linear-gradient(135deg, var(--primary) 0%, #6a11cb 100%); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center; color: white; display: flex; flex-direction: column; justify-content: center;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Our Values</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px;">Innovation • Collaboration • Excellence</p>
+                    <p style="font-style: italic;">Together, we're building a quieter, safer future.</p>
+                </div>
+
+                <!-- Mission Statement Card -->
+                <div class="team-card animate-fade-in" style="background: linear-gradient(135deg, #6a11cb 0%, var(--primary) 100%); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center; color: white; display: flex; flex-direction: column; justify-content: center;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Our Mission</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">To revolutionize road safety and reduce noise pollution through innovative technology solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentorship Section -->
+    <section class="about-content">
+        <div class="container">
+            <!-- Muktangan Mentors Section -->
+            <div style="margin-bottom: 60px;">
+                <h2>Muktangan Mentors</h2>
+                <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 25px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center;">
+                        <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                            <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                                <i class="fas fa-graduation-cap" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                                <i class="fas fa-book" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            </div>
+                            <span style="font-size: 2.5rem; color: white;">VS</span>
+                        </div>
+                        <h3>Vrishali Sardesmukhi</h3>
+                        <p style="color: var(--primary);"><i class="fas fa-chalkboard-teacher" style="margin-right: 8px;"></i>Muktangan Mentor</p>
+                        <p>"Education is not preparation for life; education is life itself." - John Dewey</p>
+                    </div>
+
+                    <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 25px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center;">
+                        <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                            <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                                <i class="fas fa-microscope" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                                <i class="fas fa-atom" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            </div>
+                            <span style="font-size: 2.5rem; color: white;">RG</span>
+                        </div>
+                        <h3>Rutika Ghodekar</h3>
+                        <p style="color: var(--primary);"><i class="fas fa-flask" style="margin-right: 8px;"></i>Muktangan Mentor</p>
+                        <p>"The best way to predict the future is to create it." - Peter Drucker</p>
+                    </div>
+
+                    <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 25px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center;">
+                        <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                            <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                                <i class="fas fa-rocket" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                                <i class="fas fa-brain" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            </div>
+                            <span style="font-size: 2.5rem; color: white;">AB</span>
+                        </div>
+                        <h3>Anant Bhinde</h3>
+                        <p style="color: var(--primary);"><i class="fas fa-lightbulb" style="margin-right: 8px;"></i>Muktangan Mentor</p>
+                        <p>"Research is creating new knowledge." - Neil Armstrong</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dassault Mentors Section -->
+            <div>
+                <h2>Dassault Mentors</h2>
+                <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 25px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center;">
+                        <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                            <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                                <i class="fas fa-laptop-code" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                                <i class="fas fa-code" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            </div>
+                            <span style="font-size: 2.5rem; color: white;">DJ</span>
+                        </div>
+                        <h3>Darshan Joshi</h3>
+                        <p style="color: var(--primary);"><i class="fas fa-laptop-code" style="margin-right: 8px;"></i>Dassault Mentor</p>
+                        <p>"Innovation distinguishes between a leader and a follower." - Steve Jobs</p>
+                    </div>
+
+                    <div class="team-card animate-fade-in" style="background: var(--bg-color); padding: 25px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center;">
+                        <div class="rotating-circle" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; background: var(--primary); display: flex; align-items: center; justify-content: center; position: relative;">
+                            <div class="orbit" style="position: absolute; width: 100%; height: 100%; animation: rotate 10s linear infinite;">
+                                <i class="fas fa-project-diagram" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                                <i class="fas fa-tasks" style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: white;"></i>
+                            </div>
+                            <span style="font-size: 2.5rem; color: white;">NK</span>
+                        </div>
+                        <h3>Niddhi Kalpana</h3>
+                        <p style="color: var(--primary);"><i class="fas fa-project-diagram" style="margin-right: 8px;"></i>Dassault Mentor</p>
+                        <p>"The future depends on what you do today." - Mahatma Gandhi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .team-card {
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .rotating-circle .orbit {
+            animation: rotate 10s linear infinite;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <!-- STFE Program Section -->
+    <section class="about-content" style="padding: 80px 0; background: linear-gradient(135deg, var(--bg-color), rgba(106, 17, 203, 0.05));">
+        <div class="container">
+            <div style="text-align: left; margin-bottom: 50px;">
+                <h2 style="font-size: 2.5em; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;">About STFE 2024</h2>
+            </div>
+            <div class="project-highlight" style="background: var(--bg-color); padding: 40px; border-radius: 20px; box-shadow: var(--box-shadow); margin-bottom: 40px; transform: translateY(50px); opacity: 0; animation: slideUpFade 1s forwards;">
+                <p style="font-size: 1.2em; margin-bottom: 20px;">The <strong style="color: var(--primary); animation: colorShift 3s infinite;">Seed The Future Entrepreneurs</strong> program by Dassault Systèmes aims to:</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin: 15px 0; padding-left: 30px; position: relative; opacity: 0; animation: slideInRight 0.5s forwards 0.3s;">
+                        <i class="fas fa-seedling" style="color: var(--primary); position: absolute; left: 0; top: 5px; animation: bounce 2s infinite;"></i>
+                        Nurture student innovation through hands-on experience
+                    </li>
+                    <li style="margin: 15px 0; padding-left: 30px; position: relative; opacity: 0; animation: slideInRight 0.5s forwards 0.6s;">
+                        <i class="fas fa-bridge" style="color: var(--primary); position: absolute; left: 0; top: 5px; animation: swing 2s infinite;"></i>
+                        Bridge classroom learning with real-world problems
+                    </li>
+                    <li style="margin: 15px 0; padding-left: 30px; position: relative; opacity: 0; animation: slideInRight 0.5s forwards 0.9s;">
+                        <i class="fas fa-tools" style="color: var(--primary); position: absolute; left: 0; top: 5px; animation: rotate 3s infinite;"></i>
+                        Provide industry-grade tools and expert mentorship
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="program-highlights" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+                <div class="highlight-card" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center; animation: float 3s infinite;">
+                    <i class="fas fa-chart-line" style="font-size: 3em; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3>Program Impact</h3>
+                    <p>500+ Schools Nationwide</p>
+                    <p>1000+ Student Innovators</p>
+                    <p>100+ Mentors</p>
+                </div>
+                <div class="highlight-card" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); text-align: center; animation: float 3s infinite 1.5s;">
+                    <i class="fas fa-award" style="font-size: 3em; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3>Key Achievements</h3>
+                    <p>National Recognition</p>
+                    <p>Industry Partnerships</p>
+                    <p>Innovation Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes titlePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideUpFade {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes colorShift {
+            0% { color: var(--primary); }
+            50% { color: var(--secondary); }
+            100% { color: var(--primary); }
+        }
+    </style>
+
+    <!-- Project Timeline -->
+    <section class="about-content" style="padding: 80px 0;">
+        <div class="container">
+            <div style="display: flex; align-items: center; margin-bottom: 50px; margin-left: 50px;">
+                <div style="width: 3px; height: 50px; background: linear-gradient(var(--primary), var(--secondary)); margin-right: 20px; animation: heightGrow 2s ease-out forwards;"></div>
+                <h2 style="font-size: 2.5em; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: slideInFromLeft 1s ease-out;">Our STFE Journey</h2>
+            </div>
+            <div class="timeline" style="position: relative; max-width: 800px; margin: 0 auto;">
+                <!-- Timeline line -->
+                <div class="timeline-line" style="position: absolute; left: 50px; top: 0; bottom: 0; width: 3px; background: linear-gradient(var(--primary), var(--secondary)); animation: lineGrow 2s ease-out forwards;"></div>
+                
+                <div class="timeline-item" style="display: flex; margin-bottom: 80px; position: relative; opacity: 0; transform: translateX(-50px); animation: slideIn 0.5s ease forwards;">
+                    <div class="timeline-content" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); margin-left: 100px; flex: 1; position: relative; transition: all 0.3s ease;">
+                        <div class="timeline-date" style="position: absolute; left: -130px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; transform: scale(0); animation: popIn 0.5s ease forwards 0.5s;">Aug 2024</div>
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Identifying Problem</h3>
+                        <p style="line-height: 1.6;">Conducted extensive research on urban noise pollution and its impact on public health and well-being in Indian cities</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" style="display: flex; margin-bottom: 80px; position: relative; opacity: 0; transform: translateX(-50px); animation: slideIn 0.5s ease forwards 0.3s;">
+                    <div class="timeline-content" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); margin-left: 100px; flex: 1; position: relative; transition: all 0.3s ease;">
+                        <div class="timeline-date" style="position: absolute; left: -130px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; transform: scale(0); animation: popIn 0.5s ease forwards 0.8s;">Nov 2024</div>
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Finding Solution</h3>
+                        <p style="line-height: 1.6;">Developed innovative horn modulation technology to address vehicular noise pollution while maintaining safety features</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" style="display: flex; margin-bottom: 80px; position: relative; opacity: 0; transform: translateX(-50px); animation: slideIn 0.5s ease forwards 0.6s;">
+                    <div class="timeline-content" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); margin-left: 100px; flex: 1; position: relative; transition: all 0.3s ease;">
+                        <div class="timeline-date" style="position: absolute; left: -130px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; transform: scale(0); animation: popIn 0.5s ease forwards 1.1s;">Dec 2024</div>
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Prototype Development</h3>
+                        <p style="line-height: 1.6;">Created and tested initial working prototype of Sileo with core functionality and safety features</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" style="display: flex; margin-bottom: 80px; position: relative; opacity: 0; transform: translateX(-50px); animation: slideIn 0.5s ease forwards 0.9s;">
+
+                    <div class="timeline-content" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); margin-left: 100px; flex: 1; position: relative; transition: all 0.3s ease;">
+                        <div class="timeline-date" style="position: absolute; left: -130px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; transform: scale(0); animation: popIn 0.5s ease forwards 1.4s;">Jan 2025</div>
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Designing</h3>
+                        <p style="line-height: 1.6;">Refined product design and user interface based on feedback and testing results</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" style="display: flex; margin-bottom: 80px; position: relative; opacity: 0; transform: translateX(-50px); animation: slideIn 0.5s ease forwards 1.2s;">
+                    <div class="timeline-content" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); margin-left: 100px; flex: 1; position: relative; transition: all 0.3s ease;">
+                        <div class="timeline-date" style="position: absolute; left: -130px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; transform: scale(0); animation: popIn 0.5s ease forwards 1.7s;">Feb 2025</div>
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Announcement of Finalist</h3>
+                        <p style="line-height: 1.6;">Selected as finalists in the STFE 2024-25 program among top innovative solutions nationwide</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" style="display: flex; margin-bottom: 80px; position: relative; opacity: 0; transform: translateX(-50px); animation: slideIn 0.5s ease forwards 1.5s;">
+                    <div class="timeline-content" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); margin-left: 100px; flex: 1; position: relative; transition: all 0.3s ease;">
+                        <div class="timeline-date" style="position: absolute; left: -130px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; transform: scale(0); animation: popIn 0.5s ease forwards 2.0s;">Coming 2025</div>
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Dassault Presentation</h3>
+                        <p style="line-height: 1.6;">Coming Soon: Final presentation to Dassault Systèmes showcasing our complete solution</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" style="display: flex; margin-bottom: 80px; position: relative; opacity: 0; transform: translateX(-50px); animation: slideIn 0.5s ease forwards 1.8s;">
+                    <div class="timeline-content" style="background: var(--bg-color); padding: 30px; border-radius: 15px; box-shadow: var(--box-shadow); margin-left: 100px; flex: 1; position: relative; transition: all 0.3s ease;">
+                        <div class="timeline-date" style="position: absolute; left: -130px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; transform: scale(0); animation: popIn 0.5s ease forwards 2.3s;">Coming
+
+                        </div>
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Government Presentation</h3>
+                        <p style="line-height: 1.6;">Coming Soon: Final presentation to government officials demonstrating impact and implementation strategy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes popIn {
+                from {
+                    transform: scale(0);
+                }
+                to {
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes heightGrow {
+                from {
+                    height: 0;
+                }
+                to {
+                    height: 50px;
+                }
+            }
+
+            @keyframes lineGrow {
+                from {
+                    height: 0%;
+                }
+                to {
+                    height: 100%;
+                }
+            }
+
+            @keyframes slideInFromLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(-30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            .timeline-content:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 30px rgba(106, 17, 203, 0.2);
+            }
+        </style>
+    </section>
+
+    <!-- Journey Video Section -->
+    <section class="journey-video">
+        <div class="container">
+            <div class="section-header animate-fade-in">
+                <h2>Journey Video</h2>
+            </div>
+            <div class="journey-content" style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+                <div class="video-container animate-slide-up" style="flex: 3; min-width: 300px; background-color: #333; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+                    <video style="width: 100%; height: auto; display: block;">
+                        <source src="Journey.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="journey-info animate-fade-in" style="flex: 1; min-width: 250px; background-color: #6a11cb; padding: 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: #fff; font-weight: bold; margin-bottom: 15px;">Our Journey</h3>
+                    <p style="color: #fff; font-weight: bold; line-height: 1.6;">Follow Team Spectrum's innovative path from concept to creation. Watch how we developed Sileo to transform urban soundscapes and create more livable cities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as other pages) -->
+<!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <span>Spectrum</span>
+                    </div>
+                    <p>Transforming businesses through innovative digital solutions and cutting-edge technology.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/spectrum___7/?hl=en" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">Sileo</a></li>
+                        <li><a href="products.html">Spectrum Suite</a></li>
+                        <li><a href="products.html">Enterprise Solutions</a></li>
+                        <li><a href="products.html">Custom Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Muktangan Exploratory</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> Spectrum@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Spectrum. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .journey-video {
+            padding: 80px 0;
+            background-color: var(--bg-color);
+        }
+        
+        .video-container {
+            margin: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .video-placeholder {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .video-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .journey-description {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
+        }
+        
+        .journey-description p {
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .video-placeholder {
+                height: 250px;
+            }
+            
+            .journey-video {
+                padding: 40px 0;
+            }
+        }
+    </style>
+
+    <script>
+        // Navigation toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Scroll animations
+        const animatedElements = document.querySelectorAll('.animate-fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+            // Save preference to localStorage
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.checked = true;
+        }
+    </script>
+</body>
+</html>
