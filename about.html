@@ -6,8 +6,13 @@
     <title>About Team Spectrum - STFE 2024</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-     @media (max-width: 768px) {
-    /* Main Content Adjustments */
+    @media (max-width: 768px) {
+    /* Global Mobile Fixes */
+    .container {
+        width: 95% !important;
+        padding: 0 10px !important;
+    }
+
     section {
         padding: 40px 0 !important;
     }
@@ -19,6 +24,7 @@
     }
     .about-hero h1 {
         font-size: 2rem !important;
+        line-height: 1.2 !important;
         margin-bottom: 15px !important;
     }
     .about-hero p {
@@ -29,19 +35,21 @@
     .project-highlight {
         padding: 25px 15px !important;
         margin: 30px 0 !important;
+        text-align: center;
     }
     .project-highlight img {
         position: relative !important;
         bottom: auto !important;
         right: auto !important;
         margin: 20px auto 0 !important;
+        width: 80px !important;
     }
 
     /* Team Section */
     .team-grid[style*="grid-template-columns: repeat(3, 1fr)"] {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
-        padding: 0 10px !important;
+        margin: 0 !important;
     }
     .team-card {
         padding: 20px !important;
@@ -51,11 +59,17 @@
         width: 80px !important;
         height: 80px !important;
     }
+    .rotating-circle span {
+        font-size: 1.8rem !important;
+    }
 
     /* Partner Logos */
     .partner-logos div {
         flex-direction: column !important;
         gap: 30px !important;
+    }
+    .partner-logo {
+        max-width: 200px !important;
     }
 
     /* Timeline Section */
@@ -72,12 +86,10 @@
         position: relative !important;
         left: 0 !important;
         margin-bottom: 15px !important;
-    }
-    .timeline-line {
-        display: none !important;
+        width: max-content !important;
     }
 
-    /* Journey Video Section */
+    /* Video Section */
     .journey-content {
         flex-direction: column !important;
     }
@@ -87,7 +99,7 @@
         margin: 15px 0 !important;
     }
 
-    /* General Spacing Fixes */
+    /* Headers & Text */
     h2 {
         font-size: 1.8rem !important;
         margin-bottom: 25px !important;
@@ -101,13 +113,11 @@
 }
 
 @media (max-width: 480px) {
-    .container {
-        width: 95% !important;
-        padding: 0 10px !important;
+    .about-hero h1 {
+        font-size: 1.8rem !important;
     }
-    .project-highlight,
-    .partner-logos {
-        padding: 25px 15px !important;
+    .partner-logo {
+        max-width: 150px !important;
     }
 }
         /* Base Styles */
