@@ -1230,6 +1230,529 @@
         </div>
     </footer>
 
+<!--Ai Chat Start-->
+
+<!-- AI Chat Container with ARIA attributes -->
+<div class="ai-chat-container" role="dialog" aria-labelledby="chat-header" data-mode="light">
+  <div class="ai-chat-box">
+    <div class="chat-header" id="chat-header">
+      <h3 style="color: var(--secondary)">Sileo Assistant</h3>
+    </div>
+    <div class="chat-messages" role="log" aria-live="polite"></div>
+    <div class="chat-input">
+    </div>
+  </div>
+  <button class="ai-trigger-btn" aria-label="Open chat assistant">
+    <span class="trigger-icon">S</span>
+  </button>
+</div>
+
+<style>
+  /* AI Chat Styles */
+  :root {
+    --primary: #6a11cb;
+    --secondary: #ffffff;
+    --bg: #ffffff;
+    --text: #000000;
+    --border: #6a11cb;
+  }
+  
+  [data-mode="dark"] {
+    --primary: #121212;
+    --secondary: #ffffff;
+    --bg: #2a2a2a;
+    --text: #ffffff;
+    --border: #8a4dff;
+  }
+  
+  .ai-chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .ai-trigger-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 2px solid var(--border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    color: var(--secondary);
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  .trigger-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ai-chat-box {
+    width: 400px;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    display: none;
+    max-height: 75vh;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+  }
+  
+  .chat-header {
+    padding: 15px;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .chat-messages {
+    height: 400px;
+    padding: 15px;
+    overflow-y: auto;
+  }
+  
+  .message {
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    max-width: 85%;
+    animation: slideIn 0.3s ease;
+    word-wrap: break-word;
+  }
+  
+  .user-message {
+    background: var(--primary);
+    color: var(--secondary);
+    margin-left: auto;
+  }
+  
+  .ai-message {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    color: var(--text);
+    margin-right: auto;
+  }
+  
+  .question-chip {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 5px;
+    word-wrap: break-word;
+    max-width: 90%;
+  }
+  
+  .question-chip:hover {
+    background: var(--primary);
+    color: var(--secondary);
+    transform: translateY(-2px);
+  }
+  
+  .chat-input {
+    display: flex;
+    padding: 12px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    margin-right: 8px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+  }
+  
+  .chat-input button {
+    background: var(--primary);
+    color: var(--secondary);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .chat-input button:hover {
+    transform: scale(1.05);
+  }
+  
+  .message-time {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 4px;
+  }
+  
+  .available-questions {
+    background: rgba(106, 17, 203, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .available-questions h4 {
+    margin: 0 0 8px 0;
+    color: var(--text);
+    font-size: 14px;
+  }
+  
+  .available-questions ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13px;
+    color: var(--text);
+  }
+  
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+</style>
+
+<script>
+  // Chat elements
+  const chatContainer = document.querySelector('.ai-chat-container');
+  const chatBox = document.querySelector('.ai-chat-box');
+  const triggerBtn = document.querySelector('.ai-trigger-btn');
+  const chatMessages = document.querySelector('.chat-messages');
+  const chatInput = document.querySelector('.chat-input input');
+  const sendBtn = document.querySelector('.chat-input button');
+  
+  // Q&A Configuration
+  let currentQuestionIndex = 0;
+  const questions = [
+    "How does Sileo work?",
+    "What emergency features are included?",
+    "How long does installation take?",
+    "Which vehicles are compatible?",
+    "What's the noise reduction percentage?",
+    "Is there a warranty?",
+    "How much power does it use?",
+    "What certifications does it have?",
+    "Can I install it myself?",
+    "Where can I buy Sileo?"
+  ];
+  
+  const answers = [
+    "Sileo Works By producing small gentle beeps.",
+    "A emergency horn feature is included with the sileo horn.",
+    "It can be easily retrofitted (No clear Answer Yet).",
+    "All Vehicles are compatible except Ambulance,Ships,Planes etc.",
+    "There is minimum noise reduction (No clear Answer Yet).",
+    "No, But It is made to last as per car Duration.",
+    "8-10 Volts from the car battery.",
+    "No Clear Answer.",
+    "No it should be installed by the manufacture.",
+    "You Cant Buy it. It comes already assembled in new cars."
+  ];
+  
+  // Keywords mapping to questions
+  const keywordMap = {
+    "work": 0,
+    "function": 0,
+    "how": 0,
+    "emergency": 1,
+    "feature": 1,
+    "install": 2,
+    "retrofitted": 2,
+    "vehicle": 3,
+    "compatible": 3,
+    "noise": 4,
+    "reduction": 4,
+    "warranty": 5,
+    "guarantee": 5,
+    "power": 6,
+    "volt": 6,
+    "battery": 6,
+    "certification": 7,
+    "certified": 7,
+    "myself": 8,
+    "diy": 8,
+    "buy": 9,
+    "purchase": 9
+  };
+  
+  // Conversation history
+  let conversationHistory = [];
+  
+  // Track asked questions
+  let askedQuestions = new Set();
+  
+  // Check for theme changes
+  function updateChatTheme() {
+    if (document.body.classList.contains('dark-mode')) {
+      chatContainer.dataset.mode = 'dark';
+    } else {
+      chatContainer.dataset.mode = 'light';
+    }
+  }
+  
+  // Listen for theme changes
+  const chatObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.attributeName === 'class') {
+        updateChatTheme();
+      }
+    });
+  });
+  
+  chatObserver.observe(document.body, { attributes: true });
+  
+  // Chat Functions
+  function initializeChat() {
+    currentQuestionIndex = 0;
+    chatMessages.innerHTML = '';
+    askedQuestions.clear();
+    
+    // Welcome message with all available questions
+    const welcomeDiv = document.createElement('div');
+    welcomeDiv.className = 'message ai-message';
+    welcomeDiv.innerHTML = `
+      Welcome to Sileo Assistant! I can answer questions about Sileo.
+      <div class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+    `;
+    chatMessages.appendChild(welcomeDiv);
+    
+    // Show first 3 questions as clickable options
+    showNextQuestions(3);
+    
+    // Update theme based on current site theme
+    updateChatTheme();
+  }
+  
+  function showNextQuestions(count) {
+    let shownCount = 0;
+    let index = currentQuestionIndex;
+    let remainingQuestions = questions.length - askedQuestions.size;
+    
+    // Check if this is the last question
+    if (remainingQuestions === 1) {
+      // Find the last unasked question
+      for (let i = 0; i < questions.length; i++) {
+        if (!askedQuestions.has(i)) {
+          // Make the last question clickable without announcing it's the last one
+          const finalQuestionChip = document.createElement('div');
+          finalQuestionChip.className = 'question-chip';
+          finalQuestionChip.style.background = 'var(--primary)';
+          finalQuestionChip.style.color = 'var(--secondary)';
+          finalQuestionChip.textContent = questions[i];
+          finalQuestionChip.onclick = () => {
+            addUserMessage(questions[i]);
+            showAnswer(i);
+          };
+          chatMessages.appendChild(finalQuestionChip);
+          break;
+        }
+      }
+      return;
+    }
+    
+    while (shownCount < count && shownCount < remainingQuestions) {
+      // Skip already asked questions
+      if (!askedQuestions.has(index)) {
+        showQuestion(index);
+        shownCount++;
+      }
+      
+      index = (index + 1) % questions.length;
+      
+      // If we've gone through all questions, break to avoid infinite loop
+      if (index === currentQuestionIndex && shownCount === 0) {
+        break;
+      }
+    }
+    
+    // Update the current index for next time
+    currentQuestionIndex = index;
+  }
+  
+  function showQuestion(index) {
+    if(index >= questions.length) return;
+    
+    const questionDiv = document.createElement('div');
+    questionDiv.className = 'question-chip';
+    questionDiv.textContent = questions[index];
+    questionDiv.onclick = () => {
+      addUserMessage(questions[index]);
+      showAnswer(index);
+    };
+    
+    chatMessages.appendChild(questionDiv);
+  }
+  
+  function addUserMessage(text) {
+    const userDiv = document.createElement('div');
+    userDiv.className = 'message user-message';
+    userDiv.textContent = text;
+    chatMessages.appendChild(userDiv);
+    chatMessages.scrollTo({top: chatMessages.scrollHeight, behavior: 'smooth'});
+  }
+  
+  function showAnswer(index) {
+    // Add this question to the asked set
+    askedQuestions.add(index);
+    
+    // Remove question chips
+    document.querySelectorAll('.question-chip').forEach(chip => {
+      chip.style.display = 'none';
+    });
+    
+    const answerDiv = document.createElement('div');
+    answerDiv.className = 'message ai-message';
+    answerDiv.innerHTML = `
+      ${answers[index]}
+      <div class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+    `;
+    chatMessages.appendChild(answerDiv);
+    
+    // Save to history
+    saveToHistory({
+      question: questions[index],
+      answer: answers[index],
+      timestamp: new Date().toISOString()
+    });
+    
+    // Check if all questions have been asked
+    if (askedQuestions.size === questions.length) {
+      // Show thank you message after 6 seconds
+      setTimeout(() => {
+        const thankYouDiv = document.createElement('div');
+        thankYouDiv.className = 'message ai-message';
+        thankYouDiv.innerHTML = `
+          Thank you for chatting with Sileo Assistant! Have a great day!
+          <div class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+        `;
+        chatMessages.appendChild(thankYouDiv);
+        chatMessages.scrollTo({top: chatMessages.scrollHeight, behavior: 'smooth'});
+        
+        // Close the chat box after 6 seconds
+        setTimeout(() => {
+          chatBox.style.display = 'none';
+        }, 6000);
+      }, 1000);
+    } else {
+      // Show next questions
+      showNextQuestions(3);
+    }
+    
+    chatMessages.scrollTo({top: chatMessages.scrollHeight, behavior: 'smooth'});
+  }
+  
+  function saveToHistory(entry) {
+    conversationHistory.push(entry);
+    localStorage.setItem('chatHistory', JSON.stringify(conversationHistory));
+  }
+  
+  function findBestMatch(input) {
+    const cleanInput = input.toLowerCase().trim();
+    let bestMatch = { index: -1, score: 0 };
+    
+    // First check for keywords
+    const words = cleanInput.split(/\s+/);
+    for (const word of words) {
+      if (keywordMap[word]) {
+        return keywordMap[word];
+      }
+    }
+    
+    // Then check for partial matches
+    questions.forEach((question, index) => {
+      const cleanQuestion = question.toLowerCase();
+      let score = 0;
+      
+      if(cleanQuestion.includes(cleanInput)) score += 2;
+      if(cleanInput.includes(cleanQuestion)) score += 1;
+      
+      // Check for word matches
+      for (const word of words) {
+        if (word.length > 3 && cleanQuestion.includes(word)) {
+          score += 1;
+        }
+      }
+      
+      if(score > bestMatch.score) {
+        bestMatch = { index, score };
+      }
+    });
+    
+    return bestMatch.score > 0 ? bestMatch.index : -1;
+  }
+  
+  // Event Listeners
+  triggerBtn.addEventListener('click', () => {
+    chatBox.style.display = chatBox.style.display === 'block' ? 'none' : 'block';
+    if(chatBox.style.display === 'block') initializeChat();
+  });
+  
+  // Handle input submission
+  sendBtn.addEventListener('click', handleUserInput);
+  chatInput.addEventListener('keypress', (e) => {
+    if(e.key === 'Enter') handleUserInput();
+  });
+  
+  function handleUserInput() {
+    const userText = chatInput.value.trim();
+    if(!userText) return;
+    
+    addUserMessage(userText);
+    chatInput.value = '';
+    
+    const matchedIndex = findBestMatch(userText);
+    if(matchedIndex > -1) {
+      showAnswer(matchedIndex);
+    } else {
+      const answerDiv = document.createElement('div');
+      answerDiv.className = 'message ai-message';
+      answerDiv.innerHTML = `
+        I'm sorry, I can only answer questions about Sileo. Here are some topics you can ask about:
+        <div class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+      `;
+      chatMessages.appendChild(answerDiv);
+      
+      // Show next 3 questions that haven't been asked
+      showNextQuestions(3);
+      
+      chatMessages.scrollTo({top: chatMessages.scrollHeight, behavior: 'smooth'});
+    }
+  }
+  
+  // Keyboard accessibility
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && chatBox.style.display === 'block') {
+      chatBox.style.display = 'none';
+    }
+  });
+</script>
+<!--Ai Chat End-->
+        
     <style>
         .journey-video {
             padding: 80px 0;
