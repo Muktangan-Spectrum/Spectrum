@@ -919,35 +919,50 @@
         </div>
     </section>
 
-    <style>
+     <style>
+        @keyframes titlePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideUpFade {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+
         @keyframes rotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-        
-        .team-card {
-            transition: all 0.3s ease;
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .rotating-circle .orbit {
-            animation: rotate 10s linear infinite;
-        }
-        
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        @keyframes colorShift {
+            0% { color: var(--primary); }
+            50% { color: var(--secondary); }
+            100% { color: var(--primary); }
         }
     </style>
-
     <!-- STFE Program Section -->
     <section class="about-content" style="padding: 80px 0; background: linear-gradient(135deg, var(--bg-color), rgba(106, 17, 203, 0.05));">
         <div class="container">
