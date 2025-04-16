@@ -730,11 +730,13 @@
             </div>
         </div>
     </footer>
+<!--Ai Chat Start-->
+
     <!-- AI Chat Container with ARIA attributes -->
 <div class="ai-chat-container" role="dialog" aria-labelledby="chat-header" data-mode="light">
     <div class="ai-chat-box">
       <div class="chat-header" id="chat-header">
-        <h3 style="color: var(--secondary)">Sileo Assistant</h3>
+        <h3 style="color: var(--secondary)">Spectrum Assistant</h3>
       </div>
       <div class="chat-messages" role="log" aria-live="polite"></div>
       <div class="chat-input">
@@ -789,6 +791,7 @@
       color: var(--secondary);
       font-weight: bold;
       font-size: 24px;
+      aspect-ratio: 1/1; /* Ensures perfect circle on all devices */
     }
     
     .trigger-icon {
@@ -814,14 +817,33 @@
     
     @media (max-width: 480px) {
       .ai-chat-box {
-        width: 85vw;
-        right: -10px;
+        width: 90vw;
+        max-width: 320px;
+        right: -5px;
+        bottom: 65px;
       }
       
       .ai-trigger-btn {
         width: 50px;
         height: 50px;
         font-size: 20px;
+        bottom: 15px;
+        right: 15px;
+        min-width: 50px; /* Ensures minimum width */
+        min-height: 50px; /* Ensures minimum height */
+      }
+      
+      .chat-header h3 {
+        font-size: 16px;
+      }
+      
+      .chat-input input {
+        padding: 10px;
+        font-size: 14px;
+      }
+      
+      .chat-input button {
+        padding: 8px 14px;
       }
     }
     
@@ -843,7 +865,13 @@
     
     @media (max-height: 600px) {
       .chat-messages {
-        height: 250px;
+        height: 200px;
+      }
+    }
+    
+    @media (max-height: 480px) {
+      .chat-messages {
+        height: 150px;
       }
     }
     
@@ -854,6 +882,15 @@
       max-width: 85%;
       animation: slideIn 0.3s ease;
       word-wrap: break-word;
+      font-size: 14px;
+    }
+    
+    @media (max-width: 480px) {
+      .message {
+        padding: 10px;
+        margin: 8px 0;
+        font-size: 13px;
+      }
     }
     
     .user-message {
@@ -884,6 +921,14 @@
       font-size: 14px;
     }
     
+    @media (max-width: 480px) {
+      .question-chip {
+        padding: 8px 12px;
+        font-size: 12px;
+        margin: 3px;
+      }
+    }
+    
     .question-chip:hover {
       background: var(--primary);
       color: var(--secondary);
@@ -898,6 +943,12 @@
       display: flex;
       padding: 12px;
       border-top: 1px solid var(--border);
+    }
+    
+    @media (max-width: 480px) {
+      .chat-input {
+        padding: 8px;
+      }
     }
     
     .chat-input input {
@@ -939,6 +990,12 @@
       margin-top: 4px;
     }
     
+    @media (max-width: 480px) {
+      .message-time {
+        font-size: 0.7rem;
+      }
+    }
+    
     .available-questions {
       background: rgba(106, 17, 203, 0.1);
       border-radius: 8px;
@@ -977,6 +1034,10 @@
       
       .chat-messages {
         -webkit-overflow-scrolling: touch;
+      }
+      
+      .chat-input input {
+        font-size: 16px; /* Prevents iOS zoom on focus */
       }
     }
   </style>
@@ -1080,7 +1141,7 @@
       const welcomeDiv = document.createElement('div');
       welcomeDiv.className = 'message ai-message';
       welcomeDiv.innerHTML = `
-        Welcome to Sileo Assistant! I can answer questions about Sileo.
+        Welcome to Spectrum Assistant! I can answer questions about Sileo.
         <div class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
       `;
       chatMessages.appendChild(welcomeDiv);
@@ -1191,7 +1252,7 @@
           const thankYouDiv = document.createElement('div');
           thankYouDiv.className = 'message ai-message';
           thankYouDiv.innerHTML = `
-            Thank you for chatting with Sileo Assistant! Have a great day!
+            Thank you for chatting with Spectrum Assistant! Have a great day!
             <div class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
           `;
           chatMessages.appendChild(thankYouDiv);
@@ -1303,6 +1364,13 @@
     viewportMeta.name = 'viewport';
     viewportMeta.content = 'width=device-width, initial-scale=1, maximum-scale=1';
     document.head.appendChild(viewportMeta);
+    
+    // Adjust chat box position on mobile orientation change
+    window.addEventListener('resize', function() {
+      if (window.innerWidth <= 480) {
+        chatBox.style.maxHeight = (window.innerHeight * 0.7) + 'px';
+      }
+    });
   </script>
   <!--Ai Chat End-->
     
